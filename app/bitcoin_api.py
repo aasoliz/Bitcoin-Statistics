@@ -1,26 +1,45 @@
 from app import db
+from config import bitcoin_key
 import unirest
-from urllib2 import Request, urlopen, URLError
+import json
 
-class Exchanges:
+def buyHour(hour):
+  response = unirest.get("https://montanaflynn-bitcoin-exchange-rate.p.mashape.com/prices/buy?qty=1",
+    headers={
+      "X-Mashape-Key": bitcoin_key,
+      "Accept": "text/plain"
+    }
+  )
 
-  def buyHour():
-    response = unirest.get(http://montanaflynn-bitcoin)
+  hour.buy_price = float(response.body['total']['amount']);
+  db.session.add(hour)
+  db.session.commit()
 
-# from urllib2 import Request, urlopen, URLError
+def sellHour(hour):
+  response = unirest.get("https://montanaflynn-bitcoin-exchange-rate.p.mashape.com/prices/sell?qty=1",
+    headers={
+      "X-Mashape-Key": bitcoin_key,
+      "Accept": "text/plain"
+    }
+  )
 
-# request = Request('http://placekitten.com/')
+  hour.sell_price = float(response.body['total']['amount']);
+  db.session.add(hour)
+  db.session.commit()
 
-# try:
-#   response = urlopen(request)
-#   kittens = response.read()
-#   print kittens[559:1000]
-# except URLError, e:
-#     print 'No kittez. Got an error code:', e
+def curr(curr, tocurr):
+  response = unirest.get("https://montanaflynn-bitcoin-exchange-rate.p.mashape.com/prices/sell?qty=1",
+    headers={
+      "X-Mashape-Key": bitcoin_key,
+      "Accept": "text/plain"
+    }
+  )
 
-# response = unirest.get("https://montanaflynn-bitcoin-exchange-rate.p.mashape.com/prices/buy?qty=1",
-#   headers={
-#     "X-Mashape-Key": "HXieJjOkGemshiw8hzl3Iq0Cgd8Ip1gT7JYjsn5myB8JJQ6rBl",
-#     "Accept": "text/plain"
-#   }
-# )
+  tags = json.load(response)
+
+  try:
+    curr = curr + '_to_' + tocurr
+    return tags[curr];
+  except:
+    print('currency exchange not supported')
+    return
