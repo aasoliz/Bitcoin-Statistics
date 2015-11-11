@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C7F4163A-2640-6E0F-4E97-1DC9D629A746" name="Days_Months_FK">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>0791E198-5889-713D-F62F-5310AF601E49</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<containerWithKeyObject>924131FF-2B45-2F2D-D0D3-58DB16AAFCF6</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>39091790-BD94-4C60-6B70-97B814EBB304</localFKIndex>
+<keyObject>FD14544C-CD43-F3EE-FCB9-79D39A2BE724</keyObject>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

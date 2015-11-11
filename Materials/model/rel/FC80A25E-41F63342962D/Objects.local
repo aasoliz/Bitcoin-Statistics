@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="924131FF-2B45-2F2D-D0D3-58DB16AAFCF6" name="Days" seqName="seg_0"/>
+   <object objectType="Table" objectID="5513EDF4-E01D-400F-307C-4E436FC5A237" name="Hours" seqName="seg_0"/>
+   <object objectType="Table" objectID="92B7B302-5641-79DB-9468-FB4D1AC8EFA7" name="Months" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="C7F4163A-2640-6E0F-4E97-1DC9D629A746" name="Days_Months_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="7091BEAA-1F97-026D-2BED-B842F292ED5B" name="Hours_Days_FK" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

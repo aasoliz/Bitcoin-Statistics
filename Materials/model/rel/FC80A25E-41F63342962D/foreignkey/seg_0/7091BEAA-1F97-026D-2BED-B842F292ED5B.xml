@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="7091BEAA-1F97-026D-2BED-B842F292ED5B" name="Hours_Days_FK">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:45 UTC</createdTime>
+<generatorID>A8A7DB99-3319-F620-FFE8-37A8B4E05C13</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<containerWithKeyObject>5513EDF4-E01D-400F-307C-4E436FC5A237</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>257D825A-6FBE-1F4D-1E64-5B58540D99AA</localFKIndex>
+<keyObject>B3F9BB4A-E43F-6CA5-EB50-C519A049F719</keyObject>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

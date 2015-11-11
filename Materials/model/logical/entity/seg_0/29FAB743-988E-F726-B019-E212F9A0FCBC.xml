@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="29FAB743-988E-F726-B019-E212F9A0FCBC" name="Days">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:49:26 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="FC80A25E-CE72-F57F-CAE6-41F63342962D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="day_id" id="9F20CFB9-2AEF-636F-53B7-A6CA77B91423">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:49:34 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="FC80A25E-CE72-F57F-CAE6-41F63342962D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+<Attribute name="day_number" id="7186E3BC-A505-9EDE-45DB-DD478CCA3E61">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:51:26 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="FC80A25E-CE72-F57F-CAE6-41F63342962D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+<Attribute name="buy_price" id="313016C0-7B9F-721D-01AF-32DE547E7E88">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:51:50 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="FC80A25E-CE72-F57F-CAE6-41F63342962D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+</Attribute>
+<Attribute name="sell_price" id="86A70B8B-AE10-4478-6A49-ED8A445FD0E3">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:52:06 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="FC80A25E-CE72-F57F-CAE6-41F63342962D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+</Attribute>
+<Attribute name="month_id" id="01D7B7AD-3E58-9433-3DF6-779C09C65527">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:55:02 UTC</createdTime>
+<generatorID>0791E198-5889-713D-F62F-5310AF601E49</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="FC80A25E-CE72-F57F-CAE6-41F63342962D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>A66FFAE2-ACCC-4523-419C-80CA7D444348</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="AD756A9C-6D99-4832-74F3-6A291BB0B080" name="Days PK">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:51:25 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="FC80A25E-CE72-F57F-CAE6-41F63342962D" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9F20CFB9-2AEF-636F-53B7-A6CA77B91423</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

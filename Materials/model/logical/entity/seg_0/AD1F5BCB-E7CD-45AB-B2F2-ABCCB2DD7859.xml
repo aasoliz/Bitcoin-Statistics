@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AD1F5BCB-E7CD-45AB-B2F2-ABCCB2DD7859" name="Hours">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:52:42 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="FC80A25E-CE72-F57F-CAE6-41F63342962D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="hour_id" id="3D7BC1A5-D8A0-6BB5-687F-65B937DF93D4">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:52:52 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="FC80A25E-CE72-F57F-CAE6-41F63342962D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+<Attribute name="hour_number" id="CE6E0DEB-E130-2FB4-66BB-7223D98B2F96">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:53:03 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="FC80A25E-CE72-F57F-CAE6-41F63342962D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+<Attribute name="buy_price" id="BE21654F-5FBD-FC2B-E66D-B6BB6B2720A7">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:53:38 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="FC80A25E-CE72-F57F-CAE6-41F63342962D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+</Attribute>
+<Attribute name="sell_price" id="27E24B78-5041-2FDD-07D4-2AD97DDF8007">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:53:46 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="FC80A25E-CE72-F57F-CAE6-41F63342962D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+</Attribute>
+<Attribute name="day_id" id="9C80388D-E13D-4600-95C8-79B9F7A86E8F">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:56:40 UTC</createdTime>
+<generatorID>A8A7DB99-3319-F620-FFE8-37A8B4E05C13</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="FC80A25E-CE72-F57F-CAE6-41F63342962D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>9F20CFB9-2AEF-636F-53B7-A6CA77B91423</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F7A0A41B-A8EF-D44D-AB8C-185D1059C125" name="Hours PK">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:53:01 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<engineerTo>
+<item key="FC80A25E-CE72-F57F-CAE6-41F63342962D" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>3D7BC1A5-D8A0-6BB5-687F-65B937DF93D4</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

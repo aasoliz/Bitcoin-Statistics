@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="92B7B302-5641-79DB-9468-FB4D1AC8EFA7" name="Months">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>3EE3C6D0-38FE-D917-2F1B-0090A863DE75</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="month_id" id="45204AF9-09F7-7381-9AD7-2533E3959CF1">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>A66FFAE2-ACCC-4523-419C-80CA7D444348</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="97810E2E-5479-ECB7-362D-FA468B63B015">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>6A8795C1-7270-5F84-C92B-B7F09E103034</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="average_buy" id="BABCD815-E311-420F-C325-C99A2A72BB24">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>128E371B-884C-502B-E848-1AA785844E29</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="average_sell" id="E5321A4B-B91C-5421-6ACA-DDFE981022ED">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>7F52F427-8E4A-ABB5-1E75-F38D6F47AA8C</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FD14544C-CD43-F3EE-FCB9-79D39A2BE724" name="Months_PK">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>503B0B42-FA2B-E9F5-DB65-BE0E914F66F8</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="45204AF9-09F7-7381-9AD7-2533E3959CF1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

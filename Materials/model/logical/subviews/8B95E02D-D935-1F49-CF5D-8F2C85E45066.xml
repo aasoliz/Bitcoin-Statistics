@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Diagram class="oracle.dbtools.crest.swingui.logical.DPVLogical" name="Logical" id="8B95E02D-D935-1F49-CF5D-8F2C85E45066">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:43:16 UTC</createdTime>
+<autoRoute>false</autoRoute>
+<boxInbox>false</boxInbox>
+<showLegend>false</showLegend>
+<showLabels>false</showLabels>
+<showRelAttributes>false</showRelAttributes>
+<showGrid>false</showGrid>
+<diagramColor>-1</diagramColor>
+<display>false</display>
+<notation>0</notation>
+<objectViews>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="29FAB743-988E-F726-B019-E212F9A0FCBC" otype="Entity" vid="028CB8F2-E898-C4C2-D0B5-5062CC09594E">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="543" y="312" width="203" height="125"/>
+</OView>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="3EE3C6D0-38FE-D917-2F1B-0090A863DE75" otype="Entity" vid="87B8CFFC-BE77-6A93-11A1-2180F7216F8E">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="81" y="135" width="244" height="150"/>
+</OView>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="AD1F5BCB-E7CD-45AB-B2F2-ABCCB2DD7859" otype="Entity" vid="CCEC405B-8464-EAF9-A78F-704AB1FDE861">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="218" y="505" width="228" height="155"/>
+</OView>
+</objectViews>
+<connectors>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="0791E198-5889-713D-F62F-5310AF601E49" otype="Relation" vid_source="87B8CFFC-BE77-6A93-11A1-2180F7216F8E" vid_target="028CB8F2-E898-C4C2-D0B5-5062CC09594E">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<lineWidth>1</lineWidth>
+<points>
+<point x="325" y="210"/>
+<point x="543" y="374"/>
+</points>
+</Connector>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="A8A7DB99-3319-F620-FFE8-37A8B4E05C13" otype="Relation" vid_source="028CB8F2-E898-C4C2-D0B5-5062CC09594E" vid_target="CCEC405B-8464-EAF9-A78F-704AB1FDE861">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<lineWidth>1</lineWidth>
+<points>
+<point x="644" y="437"/>
+<point x="446" y="582"/>
+</points>
+</Connector>
+</connectors>
+</Diagram>

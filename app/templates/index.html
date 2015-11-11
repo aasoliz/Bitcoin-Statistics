@@ -1,0 +1,11 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, peraon!</h1>
+    {% for hour in hours %}
+      <p>{{ hour }}</p>
+      <p>{{ hour.buy_price }}</p>
+      <p>{{ hour.sell_price }}</p>
+    {% endfor %}
+{% endblock %}

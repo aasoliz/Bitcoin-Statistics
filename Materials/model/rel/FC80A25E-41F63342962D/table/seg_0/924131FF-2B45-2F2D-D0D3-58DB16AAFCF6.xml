@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="924131FF-2B45-2F2D-D0D3-58DB16AAFCF6" name="Days">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>29FAB743-988E-F726-B019-E212F9A0FCBC</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="day_id" id="4680E88D-322B-55F0-CE2D-7C04DEE9C8ED">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>9F20CFB9-2AEF-636F-53B7-A6CA77B91423</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="day_number" id="517E0840-9AD1-AFE1-0A5F-875C2DF3E53F">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>7186E3BC-A505-9EDE-45DB-DD478CCA3E61</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="buy_price" id="90FC25DE-933D-02E5-9907-08292398913D">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>313016C0-7B9F-721D-01AF-32DE547E7E88</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sell_price" id="607BF854-6DFD-3DD7-8F62-8D7221866DD0">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>86A70B8B-AE10-4478-6A49-ED8A445FD0E3</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Months_month_id" id="13EAFED9-DF28-AE1F-86C0-0675153D7D97">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>01D7B7AD-3E58-9433-3DF6-779C09C65527</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>45204AF9-09F7-7381-9AD7-2533E3959CF1</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C7F4163A-2640-6E0F-4E97-1DC9D629A746" referredColumn="45204AF9-09F7-7381-9AD7-2533E3959CF1"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B3F9BB4A-E43F-6CA5-EB50-C519A049F719" name="Days_PK">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>AD756A9C-6D99-4832-74F3-6A291BB0B080</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4680E88D-322B-55F0-CE2D-7C04DEE9C8ED"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="39091790-BD94-4C60-6B70-97B814EBB304" name="Days_Months_FK">
+<createdBy>aasoliz</createdBy>
+<createdTime>2015-11-07 02:57:44 UTC</createdTime>
+<generatorID>0791E198-5889-713D-F62F-5310AF601E49</generatorID>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="13EAFED9-DF28-AE1F-86C0-0675153D7D97"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

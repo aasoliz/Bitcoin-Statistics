@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.logical.LogicalDesign>
+   <object objectType="Entity" objectID="29FAB743-988E-F726-B019-E212F9A0FCBC" name="Days" seqName="seg_0"/>
+   <object objectType="Entity" objectID="AD1F5BCB-E7CD-45AB-B2F2-ABCCB2DD7859" name="Hours" seqName="seg_0"/>
+   <object objectType="Entity" objectID="3EE3C6D0-38FE-D917-2F1B-0090A863DE75" name="Months" seqName="seg_0"/>
+   <object objectType="Relation" objectID="0791E198-5889-713D-F62F-5310AF601E49" name="Relation_1" seqName="seg_0"/>
+   <object objectType="Relation" objectID="A8A7DB99-3319-F620-FFE8-37A8B4E05C13" name="Relation_3" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.logical.LogicalDesign>
