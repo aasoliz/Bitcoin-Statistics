@@ -10,7 +10,8 @@ class Aggregate(db.Model):
     }
 
     id = db.Column(db.Integer, primary_key=True)
-    month = db.Column(db.String(50), index=True, unique=True)
+    month = db.Column(db.String(50), index=True)
+    month_number = db.Column(db.Integer, index=True)
     average_buy = db.Column(db.Numeric(precision=2))
     average_sell = db.Column(db.Numeric(precision=2))
 
@@ -20,25 +21,15 @@ class Aggregate(db.Model):
 
     totals = db.relationship('Hours', backref='hour', lazy='dynamic')
 
-    def month_buy(self):
-      count = days.count()
-      if(count < 30):
-        return -1
+    def delete_day(self):
+      # TODO: before delete gather statistics
+      #   e.g. when times were best and worst
+      #     save somewhere (new table?)
 
       for day in days:
-        buy += day.average_buy
+        db.session.delete(day)
 
-      return buy/ count
-
-    def month_sell(self):
-      count = days.count()
-      if(count < 30):
-        return -1
-
-      for day in days:
-        sell = day.average_sell
-
-      return sell/count
+      db.session.commit()
 
     def __repr__(self):
         return '<User %r>' % (self.month)
@@ -47,6 +38,16 @@ class Day(Aggregate):
   __mapper_args__ = {'polymorphic_identity': 'days'}
 
   day_number = db.Column(db.Integer)
+
+  def delete_hours(self):
+    # TODO: before delete gather statistics
+    #   e.g. when times were best and worst
+    #     save somewhere (new table?)
+
+    for hour in totals:
+      db.session.delete(hour)
+
+    db.session.commit()
 
   def __repr__(self):
     return '<Month %r, Day %r>' % ((super(Day, self).month), day_number)
