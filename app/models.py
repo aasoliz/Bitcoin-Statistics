@@ -32,7 +32,7 @@ class Aggregate(db.Model):
       db.session.commit()
 
     def __repr__(self):
-        return '<User %r>' % (self.month)
+        return '<Month  %r, id=%r>' % (self.month, self.id)
 
 class Day(Aggregate):
   __mapper_args__ = {'polymorphic_identity': 'days'}
@@ -50,7 +50,7 @@ class Day(Aggregate):
     db.session.commit()
 
   def __repr__(self):
-    return '<Month %r, Day %r>' % ((super(Day, self).month), day_number)
+    return '<Month %r, Day %r, id=%r>' % ((super(Day, self).month), self.day_number, self.id)
 
 
 class Hours(db.Model):
@@ -62,4 +62,4 @@ class Hours(db.Model):
     day_id = db.Column(db.Integer, db.ForeignKey('aggregate.id'))
 
     def __repr__(self):
-        return '<Time %r:00>' % (self.hour_number)
+        return '<Time %r:00, id=%r>' % (self.hour_number, self.id)
