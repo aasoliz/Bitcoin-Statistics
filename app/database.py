@@ -1,9 +1,9 @@
+#!../venv/bin/python
+
 from app import app, db
 from datetime import datetime
 from models import Aggregate, Day, Hours
 from bitcoin_api import buyHour, sellHour, buyDay, sellDay, buyMonth, sellMonth
-
-date = datetime.now()
 
 time_h = date.hour
 time_d = date.day
@@ -16,7 +16,6 @@ if month is None:
   month = Aggregate(month=date.strftime("%B"), month_number=time_m, average_buy=-1, average_sell=-1)
   day = Day(month=date.strftime("%B"), month_number=time_m, average_buy=-1, average_sell=-1, parent_month=month, day_number=time_d)
   hour = Hours(hour_number=time_h, buy_price=-1, sell_price=-1, hour=day)
-
 
   db.session.add(month)
   db.session.add(day)
