@@ -1,7 +1,8 @@
 from app import db
 from config import bitcoin_key
 from models import Aggregate, Day, Hours
-from time import strptime, strftime
+from time import strptime, strftime, localtime
+import os
 import unirest
 import json
 
@@ -72,14 +73,18 @@ def creation(date, buy, sell):
   time_h = date.tm_hour
   time_d = date.tm_mday
   time_m = date.tm_mon
+  complete_month = 0
+  complete_day = 0
+
+  monthDict={1:'Jan', 2:'Feb', 3:'Mar', 4:'Apr', 5:'May', 6:'Jun', 7:'Jul', 8:'Aug', 9:'Sep', 10:'Oct', 11:'Nov', 12:'Dec'}
 
   month = Aggregate.query.filter_by(month_number=time_m).first()
   day = Day.query.filter_by(month_number=time_m).first()
 
   if month is None:
     # Create Month, Day, Hour
-    month = Aggregate(month=date.strftime("%B", localtime()), month_number=time_m, average_buy=-1, average_sell=-1)
-    day = Day(month=date.strftime("%B", localtime()), month_number=time_m, average_buy=-1, average_sell=-1, parent_month=month, day_number=time_d)
+    month = Aggregate(month=monthDict[time_m], month_number=time_m, average_buy=-1, average_sell=-1)
+    day = Day(month=monthDict[time_m], month_number=time_m, average_buy=-1, average_sell=-1, parent_month=month, day_number=time_d)
     hour = Hours(hour_number=time_h, buy_price=buy, sell_price=sell, hour=day)
 
     db.session.add(month)
@@ -90,11 +95,11 @@ def creation(date, buy, sell):
     complete_month = buyMonth(month)
     sellMonth(month)
 
-  elif month:
+  else:
     day = Day.query.filter_by(day_number=time_d, month_id=month.id).first()
 
     if day is None:
-      day = Day(month=date.strftime("%B", localtime()), month_number=time_m, average_buy=-1, average_sell=-1, parent_month=month, day_number=time_d)
+      day = Day(month=monthDict[time_m], month_number=time_m, average_buy=-1, average_sell=-1, parent_month=month, day_number=time_d)
       hour = Hours(hour_number=time_h, buy_price=buy, sell_price=sell, day_id=day.id)
 
       db.session.add(day)
@@ -104,7 +109,7 @@ def creation(date, buy, sell):
       complete_day = buyDay(day)
       sellDay(day)
 
-    elif day:
+    else:
       hour = Hours.query.filter_by(hour_number=time_h, day_id=day.id).first()
 
       if hour is None:
@@ -113,11 +118,11 @@ def creation(date, buy, sell):
         db.session.add(hour)
         db.session.commit()
 
-  if(complete_day is not -1):
-    day.delete_hours()
+  # if(complete_day is not -1):
+  #   day.delete_hours()
 
-  if(complete_month is not -1):
-    month.delete_day()
+  # if(complete_month is not -1):
+  #   month.delete_day()
 
 def consolidate():
   f = open('hours.txt', 'r')
@@ -132,6 +137,8 @@ def consolidate():
     creation(date, buy_price, sell_price)
 
   f.close()
+
+  os.remove('hours.txt')
 
 def curr(curr, tocurr):
   response = unirest.get("https://montanaflynn-bitcoin-exchange-rate.p.mashape.com/prices/sell?qty=1",
