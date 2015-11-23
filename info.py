@@ -32,8 +32,8 @@ sell_price = sellHour(key)
 
 f = open('hours.txt', 'a')
 
-f.write(date.strftime('%m/%d/%y %H:%M') + "\n")
-f.write(str(buy_price) + "\n")
-f.write(str(sell_price) + "\n\n")
+f.write(date.strftime('%m/%d/%y %H:%M') + " ")
+f.write(str(buy_price) + " ")
+f.write(str(sell_price) + "\n")
 
 f.close()

@@ -1,5 +1,3 @@
-#!../venv/bin/python
-
 from app import app, db
 from datetime import datetime
 from models import Aggregate, Day, Hours
