@@ -3,6 +3,7 @@ from config import bitcoin_key
 from models import Aggregate, Day, Hours
 from time import strptime, strftime, localtime
 import os
+import os.path
 import unirest
 import json
 
@@ -125,20 +126,21 @@ def creation(date, buy, sell):
   #   month.delete_day()
 
 def consolidate():
-  f = open('hours.txt', 'r')
+  if(os.path.exists('hours.txt')):
+    f = open('hours.txt', 'r')
 
-  for line in f:
-    arr = line.split()
+    for line in f:
+      arr = line.split()
 
-    date = arr[0] + ' ' + arr[1]
-    buy_price = arr[2]
-    sell_price = arr[3]
+      date = arr[0] + ' ' + arr[1]
+      buy_price = arr[2]
+      sell_price = arr[3]
 
-    creation(date, buy_price, sell_price)
+      creation(date, buy_price, sell_price)
 
-  f.close()
+    f.close()
 
-  os.remove('hours.txt')
+    os.remove('hours.txt')
 
 def curr(curr, tocurr):
   response = unirest.get("https://montanaflynn-bitcoin-exchange-rate.p.mashape.com/prices/sell?qty=1",

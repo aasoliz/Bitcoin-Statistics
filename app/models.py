@@ -62,4 +62,4 @@ class Hours(db.Model):
     day_id = db.Column(db.Integer, db.ForeignKey('aggregate.id'))
 
     def __repr__(self):
-        return '<Time %r:00, id=%r>' % (self.hour_number, self.id)
+      return '<Time %r:00, id=%r>' % (self.hour_number, self.id)

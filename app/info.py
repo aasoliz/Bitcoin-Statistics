@@ -9,8 +9,9 @@ sell_price = sellHour(key)
 
 f = open('hours.txt', 'a')
 
-f.write(date + "\n");
-f.write(buy_price + "\n")
-f.write(sell_price + "\n")
+if(f is not None):
+    f.write(date + "\n");
+    f.write(buy_price + "\n")
+    f.write(sell_price + "\n")
 
 f.close()
