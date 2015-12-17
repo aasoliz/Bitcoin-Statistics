@@ -10,18 +10,20 @@ def index():
   consolidate()
 
   # Dictionary of points for the graph
-  buy = {}
-  sell = {}
+  buy = []
+  sell = []
 
   months = Aggregate.query.filter_by(discriminator='aggregate')
   days = Day.query.filter_by(discriminator='days')
   hours = Hours.query.all()
 
+  length = len(buy)
+
   # Input hours into 'points' {hour} {tuple(buy, sell)}
   for hour in hours:
-    if not buy.has_key(hour.hour_number):
-      buy[str(hour.hour_number)] = str(hour.buy_price)
-      sell[hour.hour_number] = str(hour.sell_price)
+    buy.insert(length, {'hour': str(hour.hour_number), 'buy': str(hour.buy_price)})
+
+    length += 1;
 
   dumps = json.dumps(buy)
 
