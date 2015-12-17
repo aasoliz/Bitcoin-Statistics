@@ -1,16 +1,16 @@
-var main = function() {
-  d3.select("div").transition
-    .style("background-color", "black");
+d3.select("body").append("p").text("Hello, World!");
+// d3.select("div").transition()
+//   .style("background-color", "black");
 
-  var margin = {top: 30, right: 20, bottom: 70, left: 50},
+var margin = {top: 30, right: 20, bottom: 70, left: 50},
     width = 600 - margin.left - margin.right,
     height = 270 - margin.top - margin.bottom;
 
 
     //Create the Scale we will use for the Axis
     var axisScale = d3.scale.linear()
-     .domain([0, 500])
-     .range([0, width]);
+      .domain([0, 500])
+      .range([0, width]);
 
 
     var yaxisScale = d3.scale.linear()
@@ -51,8 +51,19 @@ var main = function() {
       console.log(d.y);
       return yaxisScale(d.y);
     })
-    var data = {{ data|safe }}
-    svgContainer.append("svg:path").attr("class", "line").attr("d", line(data));
-};
 
-$(document).ready(main);
+    var scripts = document.getElementsByTagName('script');
+    var lastScript = scripts[scripts.length-1];
+    console.log(scripts);
+    var scriptName = lastScript;
+
+    var data = scriptName.getAttribute('data') ;
+    console.log(data);
+    var rm = data.replace(/00000000/g, "").replace(/: \'/g, ": ")
+        .replace(/\', /g, ", ").replace(/\'}/g, "}").replace(/\'/g, "\"");
+    console.log(rm);
+
+
+    var js = JSON.parse(rm);
+    console.log(js);
+    svgContainer.append("svg:path").attr("class", "line").attr("d", line(js));

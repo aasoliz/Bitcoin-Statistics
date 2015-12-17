@@ -2,9 +2,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div style="background:blue; width:20em; height:20em; position:absolute; top:20px; left:400; float:left"></div>
-    <script ssrc="graph.js"></script>
-    </h1>
+    <div></div>
+    <script type="text/javascript" src="{{ url_for('static', filename='../static/js/graph.js') }}" data="{{ data|safe }}"></script>
     {% for month in months %}
       <p>{{ month }}</p>
       {% for day in days %}
