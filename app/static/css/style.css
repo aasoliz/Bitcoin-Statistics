@@ -1,18 +1,6 @@
-.y1 {
-    fill: white;
-    stroke: red;
-    stroke-width: 2px;
-}
-
-.y2 {
-    fill: white;
-    stroke: blue;
-    stroke-width: 2px;
-}
-
 .line {
     fill: none;
-    stroke-width: 2px;
+    stroke-width: 2px;   
 }
 
 .axis path {
@@ -22,7 +10,7 @@
 }
 
 .axis g text {
-    fill: #FFC20A;
+    fill: #C9C9C9;
 }
 
 .axis g line {
@@ -30,34 +18,38 @@
 }
 
 .wrap {
+    fill: #21201F;
+}
+
+/* Change font family */
+.wrap text {
     fill: white;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-variant: small-caps;
+    font-size: 1.15em;
+}
+
+.legend {
+    width: 13px;
+    height: 13px;
 }
 
 div {
     width: 1000px;
-    height: 525px;
+    height: 500px;
     margin-right: 1em;
     float: right;
 
     background: #1F1E1D;
+    background-image: url("http://www.cs.utexas.edu/users/andsol17/black_background.png");
 
-    -moz-box-shadow: 10px  10px 5px 5px rgba(0, 0, 0, 0.16);
-    -webkit-box-shadow: 10px  10px 5px 5px rgba(0, 0, 0, 0.16);
-    box-shadow: 10px  10px 5px 5px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: -10px  10px 5px 5px rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: -10px  10px 5px 5px rgba(0, 0, 0, 0.12);
+    box-shadow: -10px  10px 5px 5px rgba(0, 0, 0, 0.12);
 
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 body {
     background: #FFFFFF;
-}
-
-.st {
-    fill: #30302F;
-
-    -moz-box-shadow: inset  10px 5px 5px #ccc;
-    -webkit-box-shadow: inset  10px 5px 5px #ccc;
-    box-shadow: inset  10px 5px 5px #ccc;
-
-    border-radius: 0 0 10px 10px;
 }

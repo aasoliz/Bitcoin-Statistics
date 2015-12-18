@@ -15,11 +15,11 @@ var rm = data.replace(/00000000/g, "")
 var prices = JSON.parse(rm);
 
 var color = {
-    0 : ["Buy", "#D1FF63"],
-    1 : ["Sell", "#FFC20A"]
+    0 : ["Buy Price", "#D1FF63"],
+    1 : ["Sell Price", "#BB91FF"]
 }
 
-var MARGIN = {top: 55, right: 20, bottom: 70, left: 50},
+var MARGIN = {top: 70, right: 20, bottom: 93, left: 50},
     WIDTH = 1000 - MARGIN.left - MARGIN.right,
     HEIGHT = 550 - MARGIN.top - MARGIN.bottom;
 
@@ -110,46 +110,36 @@ pathContainer.selectAll("circle")
 // Create Legend
 var legend = svgContainer.append("g")
     .attr("class", "wrap")
-    .attr("height", 100)
-    .attr("width", 100)
     .attr("transform", "translate(-20,50)");
 
 legend.selectAll("rect")
     .data(prices)
     .enter()
     .append("rect")
-    .attr("x", WIDTH - 65)
+    .attr("x", WIDTH - 75)
     .attr("y", function (d, i) {
-        return i * 20;
+        return i * 20 - 93;
     })
-    .attr("width", 10)
-    .attr("height", 10)
+    .attr("width", 13)
+    .attr("height", 13)
     .style("fill", function (d) {
         return color[prices.indexOf(d)][1];
-    });
+    })
+    .attr("class", "legend");
 
 legend.selectAll("text")
     .data(prices)
     .enter()
     .append("text")
-    .attr("x", WIDTH - 52)
+    .attr("x", WIDTH - 55)
     .attr("y", function (d, i) {
-        return i * 20 + 9;
+        return i * 20 - 80;
     })
     .text(function (d) {
         return color[prices.indexOf(d)][0];
     });
 
-// Extra rectangle for banner
-legend.insert("rect", "rect")
-    .attr("class", "st")
-    .attr("width", 300)
-    .attr("height", 65)
-    .attr("x", WIDTH - 150)
-    .attr("y", function (d, i) {
-        return i - 75;
-    });
-
+// Expand Circle when mouse touches
 d3.selectAll("circle")
     .on("mouseover", function() {
         return d3.select(this)
@@ -159,6 +149,7 @@ d3.selectAll("circle")
             .attr("opacity", 0.5);
     });
 
+// Return circle when mouse leaves
 d3.selectAll("circle")
     .on("mouseout", function() {
         return d3.select(this)
@@ -166,5 +157,25 @@ d3.selectAll("circle")
             .delay(400)
             .duration(650)
             .attr("r", 3)
+            .attr("opacity", 1);
+    });
+
+d3.selectAll(".legend")
+    .on("mouseover", function (color) {
+        return d3.selectAll(".line")
+            .filter(function (d) {
+                return color != d;
+            })
+            .transition()
+            .attr("opacity", 0.2);
+    });
+
+d3.selectAll(".legend")
+    .on("mouseout", function (color) {
+        return d3.selectAll(".line")
+            .filter(function (d) {
+                return color != d;
+            })
+            .transition()
             .attr("opacity", 1);
     });
