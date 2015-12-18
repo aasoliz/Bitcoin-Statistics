@@ -86,7 +86,7 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
         .scale(yScale)
         .orient("left");
-        
+
 //Add X axis
 svg.append("g")
 .attr("class", "axis")
@@ -101,7 +101,7 @@ svg.append("g")
 
 // Add title      
 svg.append("svg:text")
-       .attr("class", "title")
+   .attr("class", "title")
    .attr("x", 20)
    .attr("y", 20)
    .text("hour price Per Hour");

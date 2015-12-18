@@ -15,13 +15,13 @@ var rm = data.replace(/00000000/g, "")
 var prices = JSON.parse(rm);
 
 var color = {
-    0 : ["Buy", "green"],
-    1 : ["Sell", "orange"]
+    0 : ["Buy", "#D1FF63"],
+    1 : ["Sell", "#FFC20A"]
 }
 
-var MARGIN = {top: 20, right: 20, bottom: 70, left: 50},
+var MARGIN = {top: 55, right: 20, bottom: 70, left: 50},
     WIDTH = 1000 - MARGIN.left - MARGIN.right,
-    HEIGHT = 500 - MARGIN.top - MARGIN.bottom;
+    HEIGHT = 550 - MARGIN.top - MARGIN.bottom;
 
 
 // Limit of X-Axis
@@ -65,11 +65,13 @@ var svgContainer = d3.select("div")
 
 // Append X-Axis to container 
 svgContainer.append("g")
+    .attr("class", "axis")
     .attr("transform", "translate(0," + HEIGHT + ")")
     .call(xAxis);
 
 // Append Y-Axis to container 
 svgContainer.append("g")
+    .attr("class", "axis")
     .call(yAxis);
 
 // Create a line
@@ -96,6 +98,7 @@ pathContainer.selectAll("path")
         .y(function (d) { return yScale(d.price); })
     );
 
+// Add circles to points on graph
 pathContainer.selectAll("circle")
     .data(function (d) { return d; })
     .enter()
@@ -104,7 +107,9 @@ pathContainer.selectAll("circle")
     .attr("cy", function (d) { return yScale(d.price); })
     .attr("r", 3);
 
+// Create Legend
 var legend = svgContainer.append("g")
+    .attr("class", "wrap")
     .attr("height", 100)
     .attr("width", 100)
     .attr("transform", "translate(-20,50)");
@@ -133,6 +138,16 @@ legend.selectAll("text")
     })
     .text(function (d) {
         return color[prices.indexOf(d)][0];
+    });
+
+// Extra rectangle for banner
+legend.insert("rect", "rect")
+    .attr("class", "st")
+    .attr("width", 300)
+    .attr("height", 65)
+    .attr("x", WIDTH - 150)
+    .attr("y", function (d, i) {
+        return i - 75;
     });
 
 d3.selectAll("circle")

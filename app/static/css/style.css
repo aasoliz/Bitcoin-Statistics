@@ -1,0 +1,63 @@
+.y1 {
+    fill: white;
+    stroke: red;
+    stroke-width: 2px;
+}
+
+.y2 {
+    fill: white;
+    stroke: blue;
+    stroke-width: 2px;
+}
+
+.line {
+    fill: none;
+    stroke-width: 2px;
+}
+
+.axis path {
+    fill: none;
+    stroke: #E8E8E8;
+    shape-rendering: crispEdges;
+}
+
+.axis g text {
+    fill: #FFC20A;
+}
+
+.axis g line {
+    stroke: #E8E8E8;
+}
+
+.wrap {
+    fill: white;
+}
+
+div {
+    width: 1000px;
+    height: 525px;
+    margin-right: 1em;
+    float: right;
+
+    background: #1F1E1D;
+
+    -moz-box-shadow: 10px  10px 5px 5px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 10px  10px 5px 5px rgba(0, 0, 0, 0.16);
+    box-shadow: 10px  10px 5px 5px rgba(0, 0, 0, 0.16);
+
+    border-radius: 20px;
+}
+
+body {
+    background: #FFFFFF;
+}
+
+.st {
+    fill: #30302F;
+
+    -moz-box-shadow: inset  10px 5px 5px #ccc;
+    -webkit-box-shadow: inset  10px 5px 5px #ccc;
+    box-shadow: inset  10px 5px 5px #ccc;
+
+    border-radius: 0 0 10px 10px;
+}
