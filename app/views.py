@@ -9,29 +9,20 @@ import json
 def index():
   consolidate()
 
-  # Dictionary of points for the graph
-  buy = []
-  sell = []
+  # List of Dictionaries of points for the graph
+  prices = [[], []]
 
   months = Aggregate.query.filter_by(discriminator='aggregate')
   days = Day.query.filter_by(discriminator='days')
   hours = Hours.query.all()
 
-  length = len(buy)
+  length = len(prices[0])
 
-  # Input hours into 'points' {hour} {tuple(buy, sell)}
+  # Input hours [(buy) [{hour: #} {price: #}], (sell) [{hour: #} {price: #}]
   for hour in hours:
-    buy.insert(length, {'hour': str(hour.hour_number), 'buy': str(hour.buy_price)})
+    prices[0].insert(length, {'hour': str(hour.hour_number), 'price': str(hour.buy_price)})
+    prices[1].insert(length, {'hour': str(hour.hour_number), 'price': str(hour.sell_price)})
 
     length += 1;
 
-  dumps = json.dumps(buy)
-
-  print buy
-  print type(buy)
-  print str(buy)
-  print type(str(buy))
-  print dumps
-  print type(dumps)
-
-  return render_template('index.html', title='Home', data=str(buy), hours=hours, days=days, months=months)
+  return render_template('index.html', title='Home', data=str(prices), hours=hours, days=days, months=months)

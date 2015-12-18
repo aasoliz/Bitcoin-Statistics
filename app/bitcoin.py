@@ -93,8 +93,8 @@ def creation(date, buy, sell):
     db.session.add(hour)
     db.session.commit()
 
-    complete_month = buyMonth(month)
-    sellMonth(month)
+    #complete_month = buyMonth(month)
+    #sellMonth(month)
 
   else:
     day = Day.query.filter_by(day_number=time_d, month_id=month.id).first()
@@ -107,8 +107,8 @@ def creation(date, buy, sell):
       db.session.add(hour)
       db.session.commit()
 
-      complete_day = buyDay(day)
-      sellDay(day)
+      #complete_day = buyDay(day)
+      #sellDay(day)
 
     else:
       hour = Hours.query.filter_by(hour_number=time_h, day_id=day.id).first()
