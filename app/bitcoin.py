@@ -8,7 +8,10 @@ import unirest
 import json
 
 def buyDay(day):
-  count = day.totals.count()
+  count = 0
+  for total in day.totals:
+    count += 1
+
   if(count < 24):
     return -1
 
@@ -23,7 +26,10 @@ def buyDay(day):
   return 0
 
 def sellDay(day):
-  count = day.totals.count()
+  count = 0
+  for total in day.totals:
+    count += 1
+
   if(count < 24):
     return -1
 
@@ -38,7 +44,10 @@ def sellDay(day):
   return 0
 
 def buyMonth(month):
-  count = month.days.count()
+  count = 0
+  for day in month.days:
+    count += 1
+
   if(count < 30):
     return -1
 
@@ -53,7 +62,10 @@ def buyMonth(month):
   return 0
 
 def sellMonth(month):
-  count = month.days.count()
+  count = 0
+  for day in month.days:
+    count += 1
+
   if(count < 30):
     return -1
 
@@ -77,44 +89,44 @@ def creation(date, buy, sell):
   complete_month = 0
   complete_day = 0
 
-  monthDict={1:'Jan', 2:'Feb', 3:'Mar', 4:'Apr', 5:'May', 6:'Jun', 7:'Jul', 8:'Aug', 9:'Sep', 10:'Oct', 11:'Nov', 12:'Dec'}
+  monthDict={1:'January', 2:'February', 3:'March', 4:'April', 5:'May', 6:'June', 7:'July', 8:'August', 9:'September', 10:'October', 11:'November', 12:'December'}
 
   month = Aggregate.query.filter_by(month_number=time_m).first()
-  day = Day.query.filter_by(month_number=time_m).first()
+  day = Day.query.filter_by(month_number=time_m, day_number=time_d).first()
 
   if month is None:
     # Create Month, Day, Hour
     month = Aggregate(month=monthDict[time_m], month_number=time_m, average_buy=-1, average_sell=-1)
     day = Day(month=monthDict[time_m], month_number=time_m, average_buy=-1, average_sell=-1, parent_month=month, day_number=time_d)
-    hour = Hours(hour_number=time_h, buy_price=buy, sell_price=sell, hour=day)
+    hour = Hours(hour_number=time_h, buy_price=buy, sell_price=sell, belong_day=time_d, hour=day)
 
     db.session.add(month)
     db.session.add(day)
     db.session.add(hour)
     db.session.commit()
 
-    #complete_month = buyMonth(month)
-    #sellMonth(month)
+    buyMonth(month)
+    sellMonth(month)
 
   else:
-    day = Day.query.filter_by(day_number=time_d, month_id=month.id).first()
+    #day = Day.query.filter_by(day_number=time_d, month_id=month.id).first()
 
     if day is None:
       day = Day(month=monthDict[time_m], month_number=time_m, average_buy=-1, average_sell=-1, parent_month=month, day_number=time_d)
-      hour = Hours(hour_number=time_h, buy_price=buy, sell_price=sell, day_id=day.id)
+      hour = Hours(hour_number=time_h, buy_price=buy, sell_price=sell, belong_day=time_d, hour=day)
 
       db.session.add(day)
       db.session.add(hour)
       db.session.commit()
 
-      #complete_day = buyDay(day)
-      #sellDay(day)
+      buyDay(day)
+      sellDay(day)
 
     else:
       hour = Hours.query.filter_by(hour_number=time_h, day_id=day.id).first()
 
       if hour is None:
-        hour = Hours(hour_number=time_h, buy_price=buy, sell_price=sell, day_id=day.id)
+        hour = Hours(hour_number=time_h, buy_price=buy, sell_price=sell, belong_day=time_d, hour=day)
 
         db.session.add(hour)
         db.session.commit()

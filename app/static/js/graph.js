@@ -82,6 +82,7 @@ var line = d3.svg.line()
 var pathContainer = svgContainer.selectAll("g.line")
     .data(prices);
 
+// Set color of the lines
 pathContainer.enter()
     .append("g")
     .attr("class", "line")
@@ -89,6 +90,7 @@ pathContainer.enter()
         return "stroke: " + color[prices.indexOf(d)][1];
     });
 
+// Add the data points
 pathContainer.selectAll("path")
     .data(function (d) { return [d]; })
     .enter()
@@ -160,6 +162,7 @@ d3.selectAll("circle")
             .attr("opacity", 1);
     });
 
+// Focus on the line specified in the legend
 d3.selectAll(".legend")
     .on("mouseover", function (color) {
         return d3.selectAll(".line")
@@ -170,6 +173,7 @@ d3.selectAll(".legend")
             .attr("opacity", 0.2);
     });
 
+//  Unfocus
 d3.selectAll(".legend")
     .on("mouseout", function (color) {
         return d3.selectAll(".line")

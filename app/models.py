@@ -58,6 +58,7 @@ class Hours(db.Model):
     hour_number = db.Column(db.Integer)
     buy_price = db.Column(db.Numeric(precision=2))
     sell_price = db.Column(db.Numeric(precision=2))
+    belong_day = db.Column(db.Integer)
 
     day_id = db.Column(db.Integer, db.ForeignKey('aggregate.id'))
 
