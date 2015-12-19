@@ -50,7 +50,7 @@ class Day(Aggregate):
     db.session.commit()
 
   def __repr__(self):
-    return '<Month %r, Day %r, id=%r>' % ((super(Day, self).month), self.day_number, self.id)
+    return '<Month %r, Day %r, id=%r, avg %r %r>' % ((super(Day, self).month), self.day_number, self.id, (super(Day, self).average_buy), (super(Day, self).average_sell))
 
 
 class Hours(db.Model):

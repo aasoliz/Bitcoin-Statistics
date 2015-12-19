@@ -12,9 +12,9 @@ def index():
   # List of Dictionaries of points for the graph
   prices = [[], []]
 
-  months = Aggregate.query.filter_by(discriminator='aggregate')
-  days = Day.query.filter_by(discriminator='days')
-  hours = Hours.query.all()
+  months = Aggregate.query.filter_by(discriminator='aggregate', month_number=12)
+  days = Day.query.filter_by(discriminator='days', month_number=12, day_number=17)
+  hours = Hours.query.filter_by(belong_day=17)
 
   length = len(prices[0])
 

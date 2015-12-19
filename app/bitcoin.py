@@ -81,7 +81,6 @@ def sellMonth(month):
 
 def creation(date, buy, sell):
   date = strptime(date, '%m/%d/%y %H:%M')
-  print("%r" % date)
 
   time_h = date.tm_hour
   time_d = date.tm_mday
@@ -105,9 +104,6 @@ def creation(date, buy, sell):
     db.session.add(hour)
     db.session.commit()
 
-    buyMonth(month)
-    sellMonth(month)
-
   else:
     #day = Day.query.filter_by(day_number=time_d, month_id=month.id).first()
 
@@ -119,9 +115,6 @@ def creation(date, buy, sell):
       db.session.add(hour)
       db.session.commit()
 
-      buyDay(day)
-      sellDay(day)
-
     else:
       hour = Hours.query.filter_by(hour_number=time_h, day_id=day.id).first()
 
@@ -130,6 +123,11 @@ def creation(date, buy, sell):
 
         db.session.add(hour)
         db.session.commit()
+
+  buyMonth(month)
+  sellMonth(month)
+  buyDay(day)
+  sellDay(day)
 
   # if(complete_day is not -1):
   #   day.delete_hours()
