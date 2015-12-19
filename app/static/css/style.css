@@ -35,13 +35,11 @@
 }
 
 div {
-    width: 1000px;
-    height: 500px;
     margin-right: 1em;
     float: right;
 
     background: #1F1E1D;
-    background-image: url("http://www.cs.utexas.edu/users/andsol17/black_background.png");
+    background-image: url("http://www.cs.utexas.edu/users/andsol17/bigger_black_background2.png");
 
     -moz-box-shadow: -10px  10px 5px 5px rgba(0, 0, 0, 0.12);
     -webkit-box-shadow: -10px  10px 5px 5px rgba(0, 0, 0, 0.12);
@@ -51,5 +49,45 @@ div {
 }
 
 body {
-    background: #FFFFFF;
+    background: #B0B0B0 ;
+}
+
+nav {
+    width: 100%;
+    height: 2.5em;
+
+    margin: -0.5em 0 1.5em -0.5em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+
+    display: block;
+
+    background: #2E2D2C;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  
+    -webkit-flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+nav a {
+    margin: 0;
+    padding: 0.5em 1.5em 0.65em 1.5em;
+    
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 1.5em;
+    
+    color: #D1FF63;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    background: #212121;
+    color: #BB91FF;
 }

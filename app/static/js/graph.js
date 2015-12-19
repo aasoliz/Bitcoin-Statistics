@@ -20,9 +20,8 @@ var color = {
 }
 
 var MARGIN = {top: 70, right: 20, bottom: 93, left: 50},
-    WIDTH = 1000 - MARGIN.left - MARGIN.right,
-    HEIGHT = 550 - MARGIN.top - MARGIN.bottom;
-
+    WIDTH = (window.screen.availWidth * 0.75) - MARGIN.left - MARGIN.right,
+    HEIGHT = (window.screen.availHeight * 0.7) - MARGIN.top - MARGIN.bottom;
 
 // Limit of X-Axis
 var xExtent = d3.extent(d3.merge(prices), function (d) { 
@@ -54,6 +53,10 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(yScale)
     .orient("left");
+
+d3.select("div")
+    .attr("width", WIDTH + MARGIN.left + MARGIN.right)
+    .attr("height", HEIGHT + MARGIN.top + MARGIN.bottom);
 
 // Container
 var svgContainer = d3.select("div")
@@ -147,7 +150,7 @@ d3.selectAll("circle")
         return d3.select(this)
             .transition()
             .duration(750)
-            .attr("r", 1000)
+            .attr("r", 1700)
             .attr("opacity", 0.5);
     });
 
