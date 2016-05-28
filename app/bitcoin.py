@@ -14,8 +14,9 @@ def creation(date, buy, sell):
   time_d = date.tm_mday
   time_m = date.tm_mon
   time_y = date.tm_year
-  # complete_month = 0
-  # complete_day = 0
+  
+  complete_month = 0
+  complete_day = 0
 
   monthDict={1:'January', 2:'February', 3:'March', 4:'April', 5:'May', 6:'June', 7:'July', 8:'August', 9:'September', 10:'October', 11:'November', 12:'December'}
 
@@ -52,15 +53,6 @@ def creation(date, buy, sell):
 
         db.session.add(hour)
         db.session.commit()
-
-  month.priceMonth()
-  day.priceDay()
-
-  # if(complete_day is not -1):
-  #   day.delete_hours()
-
-  # if(complete_month is not -1):
-  #   month.delete_day()
 
 def consolidate():
   if(os.path.exists('hours.txt')):

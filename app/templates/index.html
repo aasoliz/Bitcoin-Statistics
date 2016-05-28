@@ -4,6 +4,9 @@
 {% block content %}
     <div></div>
     <script type="text/javascript" src="{{ url_for('static', filename='../static/js/graph.js') }}" data="{{ data|safe }}"></script>
+    {% for stat in stats %}
+    <p>{{ stat }}</p>
+    {% endfor %}
     {% for month in months %}
       <p>{{ month }}</p>
       {% for day in days %}
