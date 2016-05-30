@@ -10,9 +10,9 @@
         <button class=dropbtn id=buy>Buy</button>
         <div class=dropdown-content style="color: #D1FF63;">
           {% for stat in stats %}
-          <p>Buy Average: {{ stat.b_average }}</p>
-          <p>Buy Standard Dev: {{ stat.b_stnd_dev }}</p>
-          <p>Buy Biggest Diff: {{ stat.b_biggest_diff }}</p>
+          <p>Average: {{ stat.b_average }}</p>
+          <p>Standard Dev: {{ stat.b_stnd_dev }}</p>
+          <p>Biggest Diff: {{ stat.b_biggest_diff }}</p>
           {% endfor %}
         </div>
       </div>
@@ -20,9 +20,9 @@
         <button class=dropbtn id=sell>Sell</button>
         <div class=dropdown-content style="color: #BB91FF;">
           {% for stat in stats %}
-          <p>Sell Average: {{ stat.s_average }}</p>
-          <p>Sell Standard Dev: {{ stat.s_stnd_dev }}</p>
-          <p>Sell Biggest Diff: {{ stat.s_biggest_diff }}</p>
+          <p>Average: {{ stat.s_average }}</p>
+          <p>Standard Dev: {{ stat.s_stnd_dev }}</p>
+          <p>Biggest Diff: {{ stat.s_biggest_diff }}</p>
           {% endfor %}
         </div>
       </div>

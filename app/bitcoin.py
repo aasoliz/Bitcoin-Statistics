@@ -85,7 +85,7 @@ def consolidate():
             
         f.close()
         
-        os.remove('hours.txt')
+       # os.remove('hours.txt')
 
 def curr(curr, tocurr):
     response = unirest.get("https://montanaflynn-bitcoin-exchange-rate.p.mashape.com/prices/sell?qty=1",

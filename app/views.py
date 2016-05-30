@@ -15,7 +15,7 @@ def index():
     # TODO: fix if month or day comes out to be null
     #       I don't know why it would though
     months = Aggregate.query.filter_by(discriminator='aggregate', month_number=12, year=2015)
-    days = Day.query.filter_by(parent_month=months.first(), day_number=18)
+    days = Day.query.filter_by(parent_month=months.first(), day_number=17)
     hours = Hours.query.filter_by(day_id=days.first().id)
         
     stats = days.first().statistics

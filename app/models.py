@@ -1,5 +1,6 @@
 from app import db
 import math
+import time
 
 class Aggregate(db.Model):
     __tablename__ = 'aggregate'
@@ -146,14 +147,77 @@ class Predictions(db.Model):
     # Just next point or a series of points? 
     
     # Recommend buy or sell
-    prediction = db.Column(db.String(50))
+    buy_prediction = db.Column(db.Boolean, default=False)
+    sell_prediction = db.Column(db.Boolean, default=False)
     
     # To buy or sell
-    prediction_type = db.Column(db.String(5))
+    #prediction_type = db.Column(db.String(5))
     
     # One to Many (Predictions to Statistics)
     statistic_data = db.relationship('Statistics', backref="stat_pred", lazy='dynamic')
     
+    def predict(self):
+        prediction = Prediction()
+        
+        current_date = 18
+        current_month = 12
+        # currentDate = time.strftime("%m/%d/%Y")
+        
+        month = Aggregate.query.filter_by(discriminator='aggregate', month_number=(current_month - 1), year=2015)
+        
+        if month.statistics is not None:
+            b_avg, s_avg = 0, 0
+            b_dev, s_dev = 0, 0
+            b_dif, s_dif = 0, 0
+            
+            count = 0
+            for stat in month.statistics:
+                b_avg += stat.b_average
+                s_avg += stat.s_average
+                
+                b_dev += stat.b_stnd_dev
+                s_dev += stat.s_stnd_dev
+                
+                b_dif += stat.b_biggest_diff
+                s_dif += stat.s_biggest_diff
+                
+                count += 1
+                
+            b_avg = b_avg / count
+            s_avg = s_avg / count
+            
+            b_dev = b_dev / count
+            s_dev = s_dev / count
+            
+            b_dif = b_dif / count
+            s_dif = s_dif / count
+            
+            if b_dev < 10:
+                if b_dif < 5:
+                    prediction.buy_prediction = True
+                
+            if s_dev < 10:
+                if s_dif < 5:
+                    prediction.sell_prediction = True
+                
+        else: 
+            day = Day.query.filter_by(month_number=current_month, day_number=current_date)
+                
+            if day.statistics is not None:
+                    
+                stats = day.statistics.first()
+                
+                if stats.b_stnd_dev < 10:
+                    if stats.b_biggest_diff < 5:
+                        prediction.buy_prediction = True
+                        
+                if stats.s_stnd_dev < 10:
+                    if stats.s_biggest_diff < 5:
+                        prediction.sell_prediction = True
+                        
+        db.session.add(prediction)
+        db.session.commit()
+
 # TODO:
 # One 'Statistics' for 'buy' and 'sell'?
 # For now together

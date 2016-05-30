@@ -93,6 +93,8 @@ nav a:hover {
 }
 
 h1 {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-variant: small-caps;
     background: #505050;
     color: #BB91FF;
     width: 5em;
@@ -114,7 +116,7 @@ h1 {
     clear: left;
     position: relative;
     display: inline-block;
-    margin-bottom: 1em;
+    padding-bottom: 1em;
 }
 
 .dropbtn {
