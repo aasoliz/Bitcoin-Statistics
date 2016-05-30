@@ -34,7 +34,7 @@
     height: 13px;
 }
 
-div {
+.graph {
     margin-right: 1em;
     float: right;
 
@@ -100,11 +100,7 @@ h1 {
     margin-left: -0.5em;
 }
 
-h3 {
-    font-size: 1.5em;
-}
-
-.insights {
+#insights {
     float: left;
     padding-bottom: 1em;
     width: 20%;
@@ -112,10 +108,49 @@ h3 {
     text-align: center;
 }
 
+.dropdown {
+    width: 100%;
+    float: left;
+    clear: left;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1em;
+}
+
+.dropbtn {
+    width: 100%;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-variant: small-caps;
+    font-size: 1.5em;
+    padding: 0.5em;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    width: 100%;
+    border-radius: 0;
+}
+
+.dropdown-content p {
+    font-size: 1em;
+    background-color: #1C1C1C;
+    margin: 0;
+    padding: 1em;
+    border-style: solid;
+    border-color: #202020;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 #buy {
-    color: #D1FF63;
+    background-color: #D1FF63;
 }
 
 #sell {
-    color: #BB91FF;
+    background-color: #BB91FF;
 }

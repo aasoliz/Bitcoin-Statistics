@@ -55,6 +55,7 @@ var yAxis = d3.svg.axis()
     .orient("left");
 
 d3.select("div")
+    .attr("class", "graph")
     .attr("width", WIDTH + MARGIN.left + MARGIN.right)
     .attr("height", HEIGHT + MARGIN.top + MARGIN.bottom);
 

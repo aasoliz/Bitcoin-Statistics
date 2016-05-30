@@ -4,19 +4,27 @@
 {% block content %}
     <div></div>
     <script type="text/javascript" src="{{ url_for('static', filename='../static/js/graph.js') }}" data="{{ data|safe }}"></script>
-    <div class=insights>
+    <div class=graph id=insights>
       <h1>Insights</h1>
-      <h3 id=buy>Buy</h3>
-      {% for stat in stats %}
-      <p id=buy>Buy Average: {{ stat.b_average }}</p>
-      <p id=buy>Buy Standard Dev: {{ stat.b_stnd_dev }}</p>
-      <p id=buy>Buy Biggest Diff: {{ stat.b_biggest_diff }}</p>
-      {% endfor %}
-      <h3 id=sell>Sell</h3>
-      {% for stat in stats %}
-      <p id=sell>Sell Average: {{ stat.s_average }}</p>
-      <p id=sell>Sell Standard Dev: {{ stat.s_stnd_dev }}</p>
-      <p id=sell>Sell Biggest Diff: {{ stat.s_biggest_diff }}</p>
-      {% endfor %}
+      <div class=dropdown>
+        <button class=dropbtn id=buy>Buy</button>
+        <div class=dropdown-content style="color: #D1FF63;">
+          {% for stat in stats %}
+          <p>Buy Average: {{ stat.b_average }}</p>
+          <p>Buy Standard Dev: {{ stat.b_stnd_dev }}</p>
+          <p>Buy Biggest Diff: {{ stat.b_biggest_diff }}</p>
+          {% endfor %}
+        </div>
+      </div>
+      <div class=dropdown>
+        <button class=dropbtn id=sell>Sell</button>
+        <div class=dropdown-content style="color: #BB91FF;">
+          {% for stat in stats %}
+          <p>Sell Average: {{ stat.s_average }}</p>
+          <p>Sell Standard Dev: {{ stat.s_stnd_dev }}</p>
+          <p>Sell Biggest Diff: {{ stat.s_biggest_diff }}</p>
+          {% endfor %}
+        </div>
+      </div>
     </div>
 {% endblock %}
