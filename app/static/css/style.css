@@ -47,9 +47,9 @@ div {
 
     border-radius: 15px;
 }
-
+ 
 body {
-    background: #B0B0B0 ;
+    background-image: url(../img/white_background.jpg);
 }
 
 nav {
@@ -89,5 +89,33 @@ nav a {
 
 nav a:hover {
     background: #212121;
+    color: #BB91FF;
+}
+
+h1 {
+    background: #505050;
+    color: #BB91FF;
+    width: 5em;
+    text-align: center;
+    margin-left: -0.5em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+.insights {
+    float: left;
+    padding-bottom: 1em;
+    width: 20%;
+    margin: 0em;
+    text-align: center;
+}
+
+#buy {
+    color: #D1FF63;
+}
+
+#sell {
     color: #BB91FF;
 }

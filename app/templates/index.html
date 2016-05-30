@@ -4,18 +4,19 @@
 {% block content %}
     <div></div>
     <script type="text/javascript" src="{{ url_for('static', filename='../static/js/graph.js') }}" data="{{ data|safe }}"></script>
-    {% for stat in stats %}
-    <p>{{ stat }}</p>
-    {% endfor %}
-    {% for month in months %}
-      <p>{{ month }}</p>
-      {% for day in days %}
-        <p>{{ day }}</p>
-        {% for hour in hours %}
-          <p>{{ hour }}</p>
-          <p>{{ hour.buy_price }}</p>
-          <p>{{ hour.sell_price }}</p>
-        {% endfor %}
+    <div class=insights>
+      <h1>Insights</h1>
+      <h3 id=buy>Buy</h3>
+      {% for stat in stats %}
+      <p id=buy>Buy Average: {{ stat.b_average }}</p>
+      <p id=buy>Buy Standard Dev: {{ stat.b_stnd_dev }}</p>
+      <p id=buy>Buy Biggest Diff: {{ stat.b_biggest_diff }}</p>
       {% endfor %}
-    {% endfor %}
+      <h3 id=sell>Sell</h3>
+      {% for stat in stats %}
+      <p id=sell>Sell Average: {{ stat.s_average }}</p>
+      <p id=sell>Sell Standard Dev: {{ stat.s_stnd_dev }}</p>
+      <p id=sell>Sell Biggest Diff: {{ stat.s_biggest_diff }}</p>
+      {% endfor %}
+    </div>
 {% endblock %}
