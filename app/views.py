@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from app import app, db
-from models import Aggregate, Day, Hours, Statistics
+from models import Aggregate, Day, Hours, Statistics, Predictions
 from bitcoin import consolidate
 import json
 
@@ -19,6 +19,8 @@ def index():
     hours = Hours.query.filter_by(day_id=days.first().id)
         
     stats = days.first().statistics
+    print stats[0].predict
+    pred = Predictions.query.filter_by(id=stats[0].predict)
     
     length = len(prices[0])
     
@@ -30,4 +32,4 @@ def index():
         length += 1;
         
     return render_template('index.html', title='Home', data=str(prices), hours=hours, 
-                           days=days, months=months, stats=stats)
+                           days=days, months=months, stats=stats, predictions=pred) 

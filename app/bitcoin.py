@@ -1,6 +1,6 @@
 from app import db
 from config import bitcoin_key
-from models import Aggregate, Day, Hours
+from models import Aggregate, Day, Hours, Predictions
 from time import strptime, strftime, localtime
 import os
 import os.path
@@ -65,9 +65,14 @@ def creation(date, buy, sell):
     if(day.priceDay() is not -1):
         day.getStats()
         
-    # Enough information to compute month statistics
+        predict = Predictions(id=1, right=False, buy_prediction=False, sell_prediction=False)
+        print predict.id
+        predict.predict()
+        
     if(month.priceMonth() is not -1):
         month.getStats()
+        
+        Predictions(right=False, buy_prediction=False, sell_prediction=False).predict()
 
 
 def consolidate():

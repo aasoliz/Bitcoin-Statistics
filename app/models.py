@@ -151,72 +151,82 @@ class Predictions(db.Model):
     sell_prediction = db.Column(db.Boolean, default=False)
     
     # To buy or sell
-    #prediction_type = db.Column(db.String(5))
+    #self_type = db.Column(db.String(5))
     
     # One to Many (Predictions to Statistics)
     statistic_data = db.relationship('Statistics', backref="stat_pred", lazy='dynamic')
     
     def predict(self):
-        prediction = Prediction()
+        check = Predictions()
+        print check.id
+        print check.buy_prediction
         
-        current_date = 18
+        current_date = 17
         current_month = 12
         # currentDate = time.strftime("%m/%d/%Y")
         
         month = Aggregate.query.filter_by(discriminator='aggregate', month_number=(current_month - 1), year=2015)
         
-        if month.statistics is not None:
-            b_avg, s_avg = 0, 0
-            b_dev, s_dev = 0, 0
-            b_dif, s_dif = 0, 0
-            
-            count = 0
-            for stat in month.statistics:
-                b_avg += stat.b_average
-                s_avg += stat.s_average
+        if month.first() is not None:
+            if month.first().statistics is not None:
+                b_avg, s_avg = 0, 0
+                b_dev, s_dev = 0, 0
+                b_dif, s_dif = 0, 0
                 
-                b_dev += stat.b_stnd_dev
-                s_dev += stat.s_stnd_dev
+                count = 0
+                for stat in month.first().statistics:
+                    b_avg += stat.b_average
+                    s_avg += stat.s_average
+                    
+                    b_dev += stat.b_stnd_dev
+                    s_dev += stat.s_stnd_dev
+                    
+                    b_dif += stat.b_biggest_diff
+                    s_dif += stat.s_biggest_diff
+                    
+                    count += 1
+                    
+                b_avg =  b_avg / count
+                s_avg = s_avg / count
                 
-                b_dif += stat.b_biggest_diff
-                s_dif += stat.s_biggest_diff
+                b_dev = b_dev / count
+                s_dev = s_dev / count
                 
-                count += 1
+                b_dif = b_dif / count
+                s_dif = s_dif / count
                 
-            b_avg = b_avg / count
-            s_avg = s_avg / count
-            
-            b_dev = b_dev / count
-            s_dev = s_dev / count
-            
-            b_dif = b_dif / count
-            s_dif = s_dif / count
-            
-            if b_dev < 10:
-                if b_dif < 5:
-                    prediction.buy_prediction = True
-                
-            if s_dev < 10:
-                if s_dif < 5:
-                    prediction.sell_prediction = True
-                
+                if b_dev < 10:
+                    if b_dif < 5:
+                        self.buy_prediction = True
+                        
+                        if s_dev < 10:
+                            if s_dif < 5:
+                                self.sell_prediction = True
+                                
         else: 
             day = Day.query.filter_by(month_number=current_month, day_number=current_date)
                 
-            if day.statistics is not None:
-                    
-                stats = day.statistics.first()
+            if day.first().statistics is not None:
+                print 'hey'
+                stats = day.first().statistics
                 
-                if stats.b_stnd_dev < 10:
-                    if stats.b_biggest_diff < 5:
-                        prediction.buy_prediction = True
-                        
-                if stats.s_stnd_dev < 10:
-                    if stats.s_biggest_diff < 5:
-                        prediction.sell_prediction = True
-                        
-        db.session.add(prediction)
+                for stat in stats:
+                    self.stat_pred = stat
+                    print stat
+                    if stat.b_stnd_dev < 10:
+                        if stat.b_biggest_diff < 5:
+                            self.buy_prediction = True
+                            
+                            if stat.s_stnd_dev < 10:
+                                if stat.s_biggest_diff < 5:
+                                    self.sell_prediction = True
+                                    
+        print self
+        db.session.add(self)
         db.session.commit()
+        
+    def __repr__(self):
+        return 'id %r, buy %r, sell %r, %r' % (self.id, self.buy_prediction, self.sell_prediction, self.stat_pred)
 
 # TODO:
 # One 'Statistics' for 'buy' and 'sell'?
