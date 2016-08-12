@@ -1,4 +1,4 @@
-#!/home/aasoliz/Documents/Other/Commands/py/bitStats/venv/bin/python
+#!/home/aasoliz/Documents/Projects/Bitcoin-Statistics/venv/bin/python2
 
 # -*- coding: utf-8 -*-
 import re
